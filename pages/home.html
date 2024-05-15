@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-auth.js"></script>
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyDmMs_YGzD8Qnt3688f4jX_oDWcYddPka0",
+            authDomain: "web-dev-batch-10.firebaseapp.com",
+            projectId: "web-dev-batch-10",
+            storageBucket: "web-dev-batch-10.appspot.com",
+            messagingSenderId: "912231437125",
+            appId: "1:912231437125:web:9426d074209834043c642c",
+            measurementId: "G-5F9XF5DR8V"
+        };
+        firebase.initializeApp(firebaseConfig)
+    </script>
+</head>
+<body>
+    <h1>Home Page</h1>
+    <button onclick="logOut()">Log Out</button>
+<button onclick="currentUserHandler()">Current User</button>
+</body>
+<script src="./../js/home.js"></script>
+</html>
