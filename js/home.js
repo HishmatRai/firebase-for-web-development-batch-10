@@ -1,19 +1,20 @@
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
-    console.log("user onAuthStateChanged >>>>>", user);
+    if (user.emailVerified) {
+      console.log("user onAuthStateChanged >>>>>", user);
+    } else {
+      window.location.assign("./email-verification.html");
+    }
   } else {
     window.location.assign("./log-in.html");
   }
 });
 
-
-
 // current  users
-const currentUserHandler = ()=>{
+const currentUserHandler = () => {
   var user = firebase.auth().currentUser;
-  console.log("current user",user)
-
-}
+  console.log("current user", user);
+};
 const logOut = () => {
   firebase
     .auth()

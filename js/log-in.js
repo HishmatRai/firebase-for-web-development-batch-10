@@ -10,7 +10,11 @@ const LogIn = () => {
       message.innerHTML = "Success";
       message.style.color = "green";
       setTimeout(() => {
-        window.location.assign("./home.html");
+        if (res.user.emailVerified) {
+          window.location.assign("./home.html");
+        } else {
+          window.location.assign("./email-verification.html");
+        }
       }, 2000);
     })
     .catch((err) => {

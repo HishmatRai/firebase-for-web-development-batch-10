@@ -1,7 +1,11 @@
 firebase.auth().onAuthStateChanged((user) => {
   setTimeout(() => {
     if (user) {
-      window.location.assign("./pages/home.html");
+      if (user.emailVerified) {
+        window.location.assign("./pages/home.html");
+      } else {
+        window.location.assign("./pages/email-verification.html");
+      }
     } else {
       window.location.assign("./pages/log-in.html");
     }
