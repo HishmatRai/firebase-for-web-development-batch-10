@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-auth.js"></script>
+    <script src="./../js/fireabase.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <style>
+      #loading {
+        display: block;
+      }
+      #container{
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Profile</h1>
+    <img src="https://i.gifer.com/ZKZg.gif" id="loading" height="50" />
+    <div id="container">
+      <p id="email"></p>
+      <p id="full-name"></p>
+      <img src="" id="profile" height="50" width="50" />
+      <button onclick="logOut()">Log Out</button>
+
+      <hr />
+      <hr />
+      <form onsubmit="UpdateEmailHandler(); return false">
+        <input
+          type="email"
+          id="update-email"
+          placeholder="Email Address"
+          name="email"
+          required
+        />
+        <input type="submit" value="Update Email" />
+      </form>
+      <hr />
+      <hr />
+
+      <button onclick="deleteAccount()">Delete Account</button>
+    </div>
+  </body>
+  <script src="./../js/profile.js"></script>
+</html>
