@@ -23,3 +23,18 @@ const LogIn = () => {
       message.style.color = "red";
     });
 };
+
+// login with google
+const loginWithGoogle = () => {
+  var provider = new firebase.auth.GoogleAuthProvider();
+  firebase
+    .auth()
+    .signInWithPopup(provider)
+    .then((result) => {
+      window.location.assign("./home.html");
+      console.log("result", result);
+    })
+    .catch((error) => {
+      console.log("error", error);
+    });
+};
