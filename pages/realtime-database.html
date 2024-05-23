@@ -1,16 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
     <script src="./../js/fireabase.js"></script>
-</head>
-<body>
+    <style>
+      #loading {
+        display: block;
+      }
+      #container{
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
     <h1>Realtime database</h1>
-    <button onclick="addDataHanlder()">Add Data</button>
-</body>
-<script src="./../js/realtime-databse.js"></script>
+    <form onsubmit="addDataHanlder();return false">
+      <input
+        type="text"
+        placeholder="Full Name"
+        required
+        name="full-name"
+        id="full-name"
+      />
+      <input
+        type="number"
+        placeholder="Phone Number"
+        required
+        name="phone"
+        id="phone"
+      />
+      <input type="submit" value="Add Data" />
+    </form>
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Loading_2.gif"
+      id="loading"
+      height="50"
+    />
+    <div id="container"></div>
+
+    <hr />
+    <hr />
+    <hr />
+    <hr />
+    <hr />
+    <button onclick="updateDataHandler()">Update Data</button>
+  </body>
+  <script src="./../js/realtime-databse.js"></script>
 </html>
