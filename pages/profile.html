@@ -6,6 +6,7 @@
     <title>Document</title>
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
     <script src="./../js/fireabase.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
@@ -13,7 +14,7 @@
       #loading {
         display: block;
       }
-      #container{
+      #container {
         display: none;
       }
     </style>
@@ -22,9 +23,21 @@
     <h1>Profile</h1>
     <img src="https://i.gifer.com/ZKZg.gif" id="loading" height="50" />
     <div id="container">
-      <p id="email"></p>
-      <p id="full-name"></p>
-      <img src="" id="profile" height="50" width="50" />
+      <form onsubmit="updateUser();return false">
+        <input type="text" placeholder="Full Name" required id="full-name" />
+        <input type="number" placeholder="Phone Number" required id="phone" />
+        <input
+          type="email"
+          placeholder="Email Address"
+          readonly
+          required
+          id="email"
+        />
+        <button>Update</button>
+      </form>
+
+      <hr />
+      <hr />
       <button onclick="logOut()">Log Out</button>
 
       <hr />
