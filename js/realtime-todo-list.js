@@ -41,6 +41,14 @@ firebase
   .on("value", (res) => {
     ul.innerHTML = "";
     res.forEach((todoRes, index) => {
+      if(todoRes.val().uid === uid){
+// 15  || 3
+// 2 || 3
+
+// 100 - 250 || 10
+
+        console.log("all todos",todoRes.val())
+      }
       const li = document.createElement("li");
       ul.append(li);
       li.innerText = todoRes.val().todoValue;
