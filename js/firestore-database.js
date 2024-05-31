@@ -68,13 +68,50 @@ const addDataHandler = () => {
 //   });
 
 
-db.collection("users").where("email", "==", 'abc@gmail.com')
-  .get()
-  .then((res) => {
-    res.forEach((userRes, userIndex) => {
-        console.log("res--------------", userRes.data());
+// db.collection("users").where("email", "==", 'abc@gmail.com')
+//   .get()
+//   .then((res) => {
+//     res.forEach((userRes, userIndex) => {
+//         console.log("res--------------", userRes.data());
+//     });
+//   })
+//   .catch((err) => {
+//     console.log("error", err);
+//   });
+
+
+// real time data get
+db.collection("users")
+    .onSnapshot((querySnapshot) => {
+        var cities = [];
+        querySnapshot.forEach((doc) => {
+            // cities.push(doc.data());
+            console.log(doc.data())
+        });
+        // console.log("Current cities in CA: ", cities.join(", "));
     });
-  })
-  .catch((err) => {
-    console.log("error", err);
-  });
+
+
+    // file upload
+    const fileUpload = (event)=>{
+      let file = event.target.files[0];
+      // f
+      console.log(file)
+      var storageRef = firebase.storage().ref();
+      var uploadTask = storageRef.child(`profile/${file.name}`).put(file);
+      uploadTask.on('state_changed', 
+      (snapshot) => {
+        var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        console.log('Upload is ' + progress + '% done');
+      }, 
+      (error) => {
+        // Handle unsuccessful uploads
+      }, 
+      () => {
+        uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
+          console.log('File available at', downloadURL);
+        });
+      }
+    );
+    
+    }
